@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: youtube-converter-api
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: FRONTEND_URL
+        sync: false
+      - key: REDIS_URL
+        sync: false
+    healthCheckPath: /health
